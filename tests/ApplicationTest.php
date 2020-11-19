@@ -6,15 +6,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @see https://github.com/wordplate/framework
+ * @see https://github.com/MauricioDulce/framework
  */
 
 declare(strict_types=1);
 
-namespace WordPlate\Tests;
+namespace MauricioDulce\Tests;
 
 use PHPUnit\Framework\TestCase;
-use WordPlate\Application;
+use MauricioDulce\Application;
 
 class ApplicationTest extends TestCase
 {

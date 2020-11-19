@@ -1,5 +1,5 @@
 {
-    "name": "wordplate/framework",
+    "name": "mauriciodulce/fwpfwp",
     "description": "The WordPlate framework",
     "keywords": [
         "boilerplate",
@@ -10,12 +10,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Vincent Klaiber",
-            "email": "hello@doubledip.se"
-        },
-        {
-            "name": "Chris Andersson",
-            "email": "hello@puredazzle.se"
+            "name": "Mauricio Dulce",
+            "email": "hola@mauriciodulce.com"
         }
     ],
     "require": {
@@ -37,11 +33,6 @@
     },
     "config": {
         "preferred-install": "dist"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "9.2-dev"
-        }
     },
     "autoload": {
         "psr-4": {

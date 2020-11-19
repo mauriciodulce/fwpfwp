@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace WordPlate;
+namespace MauricioDulce;
 
 use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidPathException;
