@@ -6,7 +6,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @see https://github.com/MauricioDulce/framework
+ * @see https://github.com/wordplate/framework
  */
 
 declare(strict_types=1);
