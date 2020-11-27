@@ -37,19 +37,19 @@ class Application
 
         // For developers: WordPress debugging mode.
         $debug = env('WP_DEBUG', false);
-        define('WP_DEBUG', $debug);
+        // define('WP_DEBUG', $debug);
         define('WP_DEBUG_LOG', env('WP_DEBUG_LOG', false));
         define('WP_DEBUG_DISPLAY', env('WP_DEBUG_DISPLAY', $debug));
         define('SCRIPT_DEBUG', env('SCRIPT_DEBUG', $debug));
 
         // The database configuration with database name, username, password,
         // hostname charset and database collae type.
-        define('DB_NAME', env('DB_NAME'));
-        define('DB_USER', env('DB_USER'));
-        define('DB_PASSWORD', env('DB_PASSWORD'));
-        define('DB_HOST', env('DB_HOST', '127.0.0.1'));
-        define('DB_CHARSET', env('DB_CHARSET', 'utf8mb4'));
-        define('DB_COLLATE', env('DB_COLLATE', 'utf8mb4_unicode_ci'));
+        // define('DB_NAME', env('DB_NAME'));
+        // define('DB_USER', env('DB_USER'));
+        // define('DB_PASSWORD', env('DB_PASSWORD'));
+        // define('DB_HOST', env('DB_HOST', '127.0.0.1'));
+        // define('DB_CHARSET', env('DB_CHARSET', 'utf8mb4'));
+        // define('DB_COLLATE', env('DB_COLLATE', 'utf8mb4_unicode_ci'));
 
         // Detect HTTPS behind a reverse proxy or a load balancer.
         if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
