@@ -1,13 +1,6 @@
 <?php
 
-/**
- * Copyright (c) Vincent Klaiber.
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- *
- * @see https://github.com/wordplate/framework
- */
+
 
 declare(strict_types=1);
 
@@ -64,14 +57,14 @@ class Application
         }
 
         // Set the unique authentication keys and salts.
-        define('AUTH_KEY', env('AUTH_KEY'));
-        define('SECURE_AUTH_KEY', env('SECURE_AUTH_KEY'));
-        define('LOGGED_IN_KEY', env('LOGGED_IN_KEY'));
-        define('NONCE_KEY', env('NONCE_KEY'));
-        define('AUTH_SALT', env('AUTH_SALT'));
-        define('SECURE_AUTH_SALT', env('SECURE_AUTH_SALT'));
-        define('LOGGED_IN_SALT', env('LOGGED_IN_SALT'));
-        define('NONCE_SALT', env('NONCE_SALT'));
+        // define('AUTH_KEY', env('AUTH_KEY'));
+        // define('SECURE_AUTH_KEY', env('SECURE_AUTH_KEY'));
+        // define('LOGGED_IN_KEY', env('LOGGED_IN_KEY'));
+        // define('NONCE_KEY', env('NONCE_KEY'));
+        // define('AUTH_SALT', env('AUTH_SALT'));
+        // define('SECURE_AUTH_SALT', env('SECURE_AUTH_SALT'));
+        // define('LOGGED_IN_SALT', env('LOGGED_IN_SALT'));
+        // define('NONCE_SALT', env('NONCE_SALT'));
 
         // Set the home url to the current domain.
         $request = Request::createFromGlobals();
@@ -88,7 +81,9 @@ class Application
         define('EMPTY_TRASH_DAYS', env('EMPTY_TRASH_DAYS', 7));
 
         // Set the default WordPress theme.
-        define('WP_DEFAULT_THEME', env('WP_THEME', 'wordplate'));
+        define('WP_DEFAULT_THEME', env('WP_THEME', 'theme_'));
+        
+        define('DISABLE_WP_CRON', 'true');
 
         // Constant to configure core updates.
         define('WP_AUTO_UPDATE_CORE', env('WP_AUTO_UPDATE_CORE', 'minor'));
