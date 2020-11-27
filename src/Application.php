@@ -108,6 +108,18 @@ class Application
         if (!defined('ABSPATH')) {
             define('ABSPATH', sprintf('%s/%s/', $this->getPublicPath(), env('WP_DIR', 'wordpress')));
         }
+        if (!empty($_ENV['PLATFORM_RELATIONSHIPS']) && extension_loaded('redis')) {
+            $relationships = json_decode(base64_decode($_ENV['PLATFORM_RELATIONSHIPS']), true);
+        
+            $relationship_name = 'redis';
+        
+            if (!empty($relationships[$relationship_name][0])) {
+                $redis = $relationships[$relationship_name][0];
+                define('WP_REDIS_CLIENT', 'pecl');
+                define('WP_REDIS_HOST', $redis['host']);
+                define('WP_REDIS_PORT', $redis['port']);
+            }
+        }
     }
 
     public function getBasePath(): string
