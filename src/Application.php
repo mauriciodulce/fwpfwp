@@ -33,7 +33,7 @@ class Application
     public function run(): void
     {
         // Set the environment type.
-        define('WP_ENVIRONMENT_TYPE', env('WP_ENV', 'production'));
+        // define('WP_ENVIRONMENT_TYPE', env('WP_ENV', 'production'));
 
         // For developers: WordPress debugging mode.
         $debug = env('WP_DEBUG', false);
@@ -44,12 +44,12 @@ class Application
 
         // The database configuration with database name, username, password,
         // hostname charset and database collae type.
-        // define('DB_NAME', env('DB_NAME'));
-        // define('DB_USER', env('DB_USER'));
-        // define('DB_PASSWORD', env('DB_PASSWORD'));
-        // define('DB_HOST', env('DB_HOST', '127.0.0.1'));
-        // define('DB_CHARSET', env('DB_CHARSET', 'utf8mb4'));
-        // define('DB_COLLATE', env('DB_COLLATE', 'utf8mb4_unicode_ci'));
+        define('DB_NAME', env('DB_NAME'));
+        define('DB_USER', env('DB_USER'));
+        define('DB_PASSWORD', env('DB_PASSWORD'));
+        define('DB_HOST', env('DB_HOST', '127.0.0.1'));
+        define('DB_CHARSET', env('DB_CHARSET', 'utf8mb4'));
+        define('DB_COLLATE', env('DB_COLLATE', 'utf8mb4_unicode_ci'));
 
         // Detect HTTPS behind a reverse proxy or a load balancer.
         if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
@@ -57,14 +57,14 @@ class Application
         }
 
         // Set the unique authentication keys and salts.
-        // define('AUTH_KEY', env('AUTH_KEY'));
-        // define('SECURE_AUTH_KEY', env('SECURE_AUTH_KEY'));
-        // define('LOGGED_IN_KEY', env('LOGGED_IN_KEY'));
-        // define('NONCE_KEY', env('NONCE_KEY'));
-        // define('AUTH_SALT', env('AUTH_SALT'));
-        // define('SECURE_AUTH_SALT', env('SECURE_AUTH_SALT'));
-        // define('LOGGED_IN_SALT', env('LOGGED_IN_SALT'));
-        // define('NONCE_SALT', env('NONCE_SALT'));
+        define('AUTH_KEY', env('AUTH_KEY'));
+        define('SECURE_AUTH_KEY', env('SECURE_AUTH_KEY'));
+        define('LOGGED_IN_KEY', env('LOGGED_IN_KEY'));
+        define('NONCE_KEY', env('NONCE_KEY'));
+        define('AUTH_SALT', env('AUTH_SALT'));
+        define('SECURE_AUTH_SALT', env('SECURE_AUTH_SALT'));
+        define('LOGGED_IN_SALT', env('LOGGED_IN_SALT'));
+        define('NONCE_SALT', env('NONCE_SALT'));
 
         // Set the home url to the current domain.
         $request = Request::createFromGlobals();
@@ -82,7 +82,7 @@ class Application
 
         // Set the default WordPress theme.
         define('WP_DEFAULT_THEME', env('WP_THEME', 'theme_'));
-        
+
         define('DISABLE_WP_CRON', 'true');
 
         // Constant to configure core updates.
@@ -104,15 +104,34 @@ class Application
         // Set the cache constant for plugins such as WP Super Cache and W3 Total Cache.
         define('WP_CACHE', env('WP_CACHE', true));
 
+
+        define( 'AS3CF_SETTINGS', serialize( array(
+            'provider' => env('AS3CF_PROVIDER', 'do'),
+            'access-key-id' => env('AS3CF_KEYID'),
+            'secret-access-key' => env('AS3CF_SECRETKEY'),
+            'bucket' => env('AS3CF_BUCKET'),
+            'region' => env('AS3CF_REGION', 'nyc3'),
+            'copy-to-s3' => true,
+            'enable-object-prefix' => true,
+            'object-prefix' => 'media/',
+            'use-yearmonth-folders' => true,
+            'object-versioning' => true,
+            'delivery-provider' => env('AS3CF_DELIVER_PROVIDER','storage'),
+            'serve-from-s3' => true,
+            'enable-delivery-domain' => env('AS3CF_DELIVERY_DOMAIN',),
+            'delivery-domain' => env('AS3CF_DELIVER_DOMAIN'),
+            'force-https' => env('AS3CF_HTTPS'),
+            'remove-local-file' => env('AS3CF_REMOVE_LOCAL'),
+        ) ) );
         // Set the absolute path to the WordPress directory.
         if (!defined('ABSPATH')) {
             define('ABSPATH', sprintf('%s/%s/', $this->getPublicPath(), env('WP_DIR', 'wordpress')));
         }
         if (!empty($_ENV['PLATFORM_RELATIONSHIPS']) && extension_loaded('redis')) {
             $relationships = json_decode(base64_decode($_ENV['PLATFORM_RELATIONSHIPS']), true);
-        
+
             $relationship_name = 'redis';
-        
+
             if (!empty($relationships[$relationship_name][0])) {
                 $redis = $relationships[$relationship_name][0];
                 define('WP_REDIS_CLIENT', 'pecl');
