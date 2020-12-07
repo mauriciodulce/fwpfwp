@@ -44,12 +44,12 @@ class Application
 
         // The database configuration with database name, username, password,
         // hostname charset and database collae type.
-        define('DB_NAME', env('DB_NAME'));
-        define('DB_USER', env('DB_USER'));
-        define('DB_PASSWORD', env('DB_PASSWORD'));
-        define('DB_HOST', env('DB_HOST', '127.0.0.1'));
-        define('DB_CHARSET', env('DB_CHARSET', 'utf8mb4'));
-        define('DB_COLLATE', env('DB_COLLATE', 'utf8mb4_unicode_ci'));
+        // define('DB_NAME', env('DB_NAME'));
+        // define('DB_USER', env('DB_USER'));
+        // define('DB_PASSWORD', env('DB_PASSWORD'));
+        // define('DB_HOST', env('DB_HOST', '127.0.0.1'));
+        // define('DB_CHARSET', env('DB_CHARSET', 'utf8mb4'));
+        // define('DB_COLLATE', env('DB_COLLATE', 'utf8mb4_unicode_ci'));
 
         // Detect HTTPS behind a reverse proxy or a load balancer.
         if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
@@ -57,14 +57,14 @@ class Application
         }
 
         // Set the unique authentication keys and salts.
-        define('AUTH_KEY', env('AUTH_KEY'));
-        define('SECURE_AUTH_KEY', env('SECURE_AUTH_KEY'));
-        define('LOGGED_IN_KEY', env('LOGGED_IN_KEY'));
-        define('NONCE_KEY', env('NONCE_KEY'));
-        define('AUTH_SALT', env('AUTH_SALT'));
-        define('SECURE_AUTH_SALT', env('SECURE_AUTH_SALT'));
-        define('LOGGED_IN_SALT', env('LOGGED_IN_SALT'));
-        define('NONCE_SALT', env('NONCE_SALT'));
+        // define('AUTH_KEY', env('AUTH_KEY'));
+        // define('SECURE_AUTH_KEY', env('SECURE_AUTH_KEY'));
+        // define('LOGGED_IN_KEY', env('LOGGED_IN_KEY'));
+        // define('NONCE_KEY', env('NONCE_KEY'));
+        // define('AUTH_SALT', env('AUTH_SALT'));
+        // define('SECURE_AUTH_SALT', env('SECURE_AUTH_SALT'));
+        // define('LOGGED_IN_SALT', env('LOGGED_IN_SALT'));
+        // define('NONCE_SALT', env('NONCE_SALT'));
 
         // Set the home url to the current domain.
         $request = Request::createFromGlobals();
